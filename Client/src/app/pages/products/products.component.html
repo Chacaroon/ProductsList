@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <ng-template [ngIf]="products">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Product name</th>
+          <th scope="col">Category type</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{product.id}}</td>
+          <td>{{product.name}}</td>
+          <td>{{product.category.name}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <pagination [itemsPerPage]="10" [totalItems]="productsCount" (pageChanged)="pageChanged($event)"></pagination>
+    </ng-template>
+  </div>
+</div>
